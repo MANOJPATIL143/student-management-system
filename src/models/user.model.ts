@@ -3,10 +3,10 @@ import bcrypt from "bcrypt";
 import config from "config";
 
 export interface UserInput {
-  email: string;
-  name: string;
-  password: string;
-  role: string;
+  email?: string;
+  name?: string;
+  password?: string;
+  role?: string;
 }
 
 export interface UserDocument extends UserInput, mongoose.Document {
