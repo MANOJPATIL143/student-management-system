@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const uniqueValidator = require("mongoose-unique-validator");
 
-const teacherSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     firstName: { type: String },
     lastName: { type: String },
@@ -16,8 +16,8 @@ const teacherSchema = new mongoose.Schema(
     },
   }
 );
-teacherSchema.plugin(uniqueValidator, { message: "Email already in use." });
+userSchema.plugin(uniqueValidator, { message: "Email already in use." });
 
-const TeacherModel = mongoose.model("Teachers", teacherSchema);
+const UserModel = mongoose.model("Users", userSchema);
 
-module.exports = TeacherModel;
+module.exports = UserModel;
