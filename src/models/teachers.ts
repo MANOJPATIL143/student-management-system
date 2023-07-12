@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 const uniqueValidator = require("mongoose-unique-validator");
 
-const userSchema = new mongoose.Schema(
+const teacherSchema = new mongoose.Schema(
   {
     firstName: { type: String },
     lastName: { type: String },
     email: { type: String, unique: true },
     password: { type: String },
-    role: { type: String, default: "USER", enum: ["USER", "ADMIN"] },
+    role: { type: String, default: "TEACHER", enum: ["TEACHER", "ADMIN"] },
   },
   {
     timestamps: {
@@ -16,8 +16,8 @@ const userSchema = new mongoose.Schema(
     },
   }
 );
-userSchema.plugin(uniqueValidator, { message: "Email already in use." });
+teacherSchema.plugin(uniqueValidator, { message: "Email already in use." });
 
-const UserModel = mongoose.model("Users", userSchema);
+const TeacherModel = mongoose.model("Teachers", teacherSchema);
 
-module.exports = UserModel;
+module.exports = TeacherModel;
