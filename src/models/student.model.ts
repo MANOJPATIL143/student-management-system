@@ -6,14 +6,14 @@ const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz0123456789", 10);
 
 export interface StudentInput {
   user: UserDocument["_id"];
-  firstName: string;
-  lastName: string;
-  class: string;
-  admissionNo: string;
-  grade: string;
-  age: string;
-  guardianName: string;
-  guardianPhoneNumber: string;
+  firstName?: string;
+  lastName?: string;
+  class?: string;
+  admissionNo?: string;
+  grade?: string;
+  age?: number;
+  guardianName?: string;
+  guardianPhoneNumber?: string;
 }
 
 export interface StudentDocument extends StudentInput, mongoose.Document {}

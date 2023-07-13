@@ -14,6 +14,9 @@ const payload = {
     grade: string({
       required_error: "Grade is required",
     }),
+    class: string({
+      required_error: "Class is required",
+    }),
     age: number({
       required_error: "Age is required",
     }),

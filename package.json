@@ -2,10 +2,10 @@
   "name": "school-management-system",
   "version": "1.0.0",
   "description": "Simple application to manage students",
-  "author":"dev.elijah.ndungu@gmail.com",
+  "author": "dev.elijah.ndungu@gmail.com",
   "main": "app.ts",
   "license": "MIT",
-   "scripts": {
+  "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "build": "tsc"
   },
@@ -26,6 +26,7 @@
     "nanoid": "^4.0.2",
     "pino": "^8.14.1",
     "pino-pretty": "^10.0.1",
+    "prom-client": "^14.2.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {

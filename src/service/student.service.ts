@@ -49,6 +49,6 @@ export async function findAndUpdateStudent(
   return StudentModel.findOneAndUpdate(query, update, options);
 }
 
-export async function deleteProduct(query: FilterQuery<StudentDocument>) {
+export async function deleteStudent(query: FilterQuery<StudentDocument>) {
   return StudentModel.deleteOne(query);
 }
