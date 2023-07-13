@@ -23,7 +23,7 @@ export async function createStudentHandler(
   return res.send(student);
 }
 
-export async function updateProductHandler(
+export async function updateStudentHandler(
   req: Request<UpdateStudentInput["params"]>,
   res: Response
 ) {
