@@ -1,45 +1,46 @@
-import express from "express";
-import http from "http";
-import bodyParser from "body-parser";
-import cookieParser from "cookie-parser";
-import compression from "compression";
-import cors from "cors";
-import mongoose from "mongoose";
-require("dotenv").config();
+import express, { Request, Response } from "express";
+import dotenv from "dotenv";
+dotenv.config();
+import config from "config";
+import responseTime from "response-time";
+import connect from "./utils/connect";
+import logger from "./utils/logger";
+import routes from "./routes/routes";
+import deserializeUser from "./middleware/deserializeUser";
+import { restResponseTimeHistogram, startMetricsServer } from "./utils/metrics";
+import swaggerDocs from "./utils/swagger";
+
+const port = config.get<number>("port");
 
 const app = express();
 
-const api = require("./routes/auth.routes");
+app.use(express.json());
+
+app.use(deserializeUser);
 
 app.use(
-  cors({
-    credentials: true,
+  responseTime((req: Request, res: Response, time: number) => {
+    if (req?.route?.path) {
+      restResponseTimeHistogram.observe(
+        {
+          method: req.method,
+          route: req.route.path,
+          status_code: res.statusCode,
+        },
+        time * 1000
+      );
+    }
   })
 );
 
-app.use(compression());
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use("/api", api);
+app.listen(port, async () => {
+  logger.info(`App is running at http://localhost:${port}`);
 
-const server = http.createServer(app);
+  await connect();
 
-const port = process.env.PORT || 8088;
-const MONGO_URL = process.env.MONGO_URL;
+  routes(app);
 
-server.listen(port, () => {
-  console.log("Server running on 8088");
+  startMetricsServer();
+
+  swaggerDocs(app, port);
 });
-
-mongoose.Promise = Promise;
-mongoose
-  .connect(MONGO_URL)
-  .then((x) => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
-  })
-  .catch((err) => {
-    console.error("Error connecting to mongo", err.reason);
-  });
-mongoose.connection.on("error", (error: Error) => console.log(error));

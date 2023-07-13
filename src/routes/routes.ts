@@ -11,7 +11,7 @@ import {
   deleteSessionHandler,
 } from "../controller/session.controller";
 import { createUserHandler } from "../controller/user.controller";
-import requireUser from "../middleware/requireUser";
+import isAuthenticated from "../middleware/isAuthenticated";
 import validateResource from "../middleware/validateResource";
 import {
   createStudentSchema,
@@ -33,19 +33,19 @@ function routes(app: Express) {
     createUserSessionHandler
   );
 
-  app.get("/api/sessions", requireUser, getUserSessionsHandler);
+  app.get("/api/sessions", isAuthenticated, getUserSessionsHandler);
 
-  app.delete("/api/sessions", requireUser, deleteSessionHandler);
+  app.delete("/api/sessions", isAuthenticated, deleteSessionHandler);
 
   app.post(
     "/api/students",
-    [requireUser, validateResource(createStudentSchema)],
+    [isAuthenticated, validateResource(createStudentSchema)],
     createStudentHandler
   );
 
   app.put(
     "/api/students/:studentId",
-    [requireUser, validateResource(updateStudentSchema)],
+    [isAuthenticated, validateResource(updateStudentSchema)],
     updateStudentHandler
   );
 
@@ -57,7 +57,7 @@ function routes(app: Express) {
 
   app.delete(
     "/api/students/:studentId",
-    [requireUser, validateResource(deleteStudentSchema)],
+    [isAuthenticated, validateResource(deleteStudentSchema)],
     deleteStudentHandler
   );
 }
