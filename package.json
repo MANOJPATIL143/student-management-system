@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple application to manage students",
   "author": "dev.elijah.ndungu@gmail.com",
-  "main": "app.ts",
+  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
@@ -23,7 +23,8 @@
     "jsonwebtoken": "^9.0.1",
     "lodash": "^4.17.21",
     "mongoose": "^7.3.4",
-    "nanoid": "^4.0.2",
+    "nanoid": "^3.3.4",
+    "node-fetch": "^2.6.1",
     "pino": "^8.14.1",
     "pino-pretty": "^10.0.1",
     "prom-client": "^14.2.0",
