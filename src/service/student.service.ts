@@ -13,12 +13,14 @@ export async function createStudent(input: StudentInput) {
   }
 }
 
+export async function findStudents({}, query: FilterQuery<StudentDocument>) {
+  return StudentModel.find(query).lean();
+}
+
 export async function findStudent(
   query: FilterQuery<StudentDocument>,
   options: QueryOptions = { lean: true }
 ) {
-
-
   try {
     const result = await StudentModel.findOne(query, {}, options);
     return result;

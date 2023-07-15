@@ -121,7 +121,9 @@ export const getStudentSchema = object({
   ...params,
 });
 
+export const listStudentSchema = object({});
 export type CreateStudentInput = TypeOf<typeof createStudentSchema>;
 export type UpdateStudentInput = TypeOf<typeof updateStudentSchema>;
 export type ReadStudentInput = TypeOf<typeof getStudentSchema>;
+export type ListStudentInput = TypeOf<typeof listStudentSchema>;
 export type DeleteStudentInput = TypeOf<typeof deleteStudentSchema>;

@@ -4,6 +4,7 @@ import {
   getStudentHandler,
   updateStudentHandler,
   deleteStudentHandler,
+  getAllStudentsHandler,
 } from "../controller/student.controller";
 import {
   createUserSessionHandler,
@@ -18,6 +19,7 @@ import {
   deleteStudentSchema,
   getStudentSchema,
   updateStudentSchema,
+  listStudentSchema,
 } from "../schema/student.schema";
 import { createSessionSchema } from "../schema/session.schema";
 import { createUserSchema } from "../schema/user.schema";
@@ -43,7 +45,7 @@ function routes(app: Express) {
    * '/api/v1/users':
    *  post:
    *     tags:
-   *     - User
+   *     - Users
    *     summary: Register a user
    *     requestBody:
    *      required: true
@@ -64,46 +66,158 @@ function routes(app: Express) {
    *        description: Bad request
    */
   app.post(
-    `${baseUrl}users`,
+    `${baseUrl}/users`,
     validateResource(createUserSchema),
     createUserHandler
   );
 
+  /**
+   * @openapi
+   * /api/v1/sessions:
+   *  post:
+   *     tags:
+   *     - Users
+   *     summary: Login with email and password
+   *     responses:
+   *       200:
+   *
+   */
   app.post(
     `${baseUrl}/sessions`,
     validateResource(createSessionSchema),
     createUserSessionHandler
   );
 
-  app.get(`${baseUrl}/sessions`, isAuthenticated, getUserSessionsHandler);
+  /**
+   * @openapi
+   * /api/v1/sessions:
+   *  get:
+   *     tags:
+   *     - Users
+   *     summary: Get logged in user details
+   *     responses:
+   *       200:
+   *
+   */
 
-  app.delete(`${baseUrl}/sessions`, isAuthenticated, deleteSessionHandler);
+  app.get(`${baseUrl}/sessions`, isAuthenticated, getUserSessionsHandler);
 
   /**
    * @openapi
-   * '/api/v1/students':
-   *  post:
+   * /api/v1/sessions:
+   *  delete:
    *     tags:
-   *     - Students
-   *     summary: Add student
+   *     - Users
+   *     summary: terminate and destroy user sessions
+   *     responses:
+   *       200:
+   *
+   */
+  app.delete(`${baseUrl}/sessions`, isAuthenticated, deleteSessionHandler);
+
+  //Students APIS
+
+  /**
+   * @openapi
+   * tags:
+   *   name: Students
+   *   description: The students managing API
+   * /api/v1/students:
+   *   get:
+   *     summary: Lists all the students
+   *     tags: [Students]
+   *     responses:
+   *       200:
+   *         description: The list of the students
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: array
+   *               items:
+   *                 $ref: '#/components/schemas/CreateStudentInput'
+   *   post:
+   *     summary: Create a new student
+   *     tags: [Students]
    *     requestBody:
+   *       required: true
+   *       content:
+   *         application/json:
+   *           schema:
+   *             $ref: '#/components/schemas/CreateStudentInput'
+   *     responses:
+   *       200:
+   *         description: The student was created successfully.
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/CreateStudentInput'
+   *       500:
+   *         description: Some server error
+   * /api/v1/students/{studentId}:
+   *   get:
+   *     summary: Get the student by studentId
+   *     tags: [Students]
+   *     parameters:
+   *       - in: path
+   *         name: studentId
+   *         schema:
+   *           type: string
+   *         required: true
+   *         description: The studentId
+   *     responses:
+   *       200:
+   *         description: The student response by studentId
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/CreateStudentInput'
+   *       404:
+   *         description: The student was not found
+   *   put:
+   *    summary: Update the student by the studentId
+   *    tags: [Students]
+   *    parameters:
+   *      - in: path
+   *        name: studentId
+   *        schema:
+   *          type: integer
+   *        required: true
+   *        description: The student id
+   *    requestBody:
    *      required: true
    *      content:
    *        application/json:
-   *           schema:
-   *              $ref: '#/components/schemas/CreateStudentInput'
-   *     responses:
+   *          schema:
+   *            $ref: '#/components/schemas/CreateStudentInput'
+   *    responses:
    *      200:
-   *        description: Success
+   *        description: The book was updated
    *        content:
    *          application/json:
    *            schema:
-   *              $ref: '#/components/schemas/CreateStudentResponse'
-   *      409:
-   *        description: Conflict
-   *      400:
-   *        description: Bad request
+   *              $ref: '#/components/schemas/CreateStudentInput'
+   *      404:
+   *        description: The student was not found
+   *      500:
+   *        description: Some error happened
+   *   delete:
+   *     summary: Remove the student by studentId
+   *     tags: [Students]
+   *     parameters:
+   *       - in: path
+   *         name: studentId
+   *         schema:
+   *           type: integer
+   *         required: true
+   *         description: The student id
+   *
+   *     responses:
+   *       200:
+   *         description: The student was deleted
+   *       404:
+   *         description: The student was not found
    */
+
   app.post(
     `${baseUrl}/students`,
     [isAuthenticated, validateResource(createStudentSchema)],
@@ -120,6 +234,12 @@ function routes(app: Express) {
     `${baseUrl}/students/:studentId`,
     validateResource(getStudentSchema),
     getStudentHandler
+  );
+
+  app.get(
+    `${baseUrl}/students`,
+    validateResource(listStudentSchema),
+    getAllStudentsHandler
   );
 
   app.delete(

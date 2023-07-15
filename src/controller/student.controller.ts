@@ -8,6 +8,7 @@ import {
   deleteStudent,
   findAndUpdateStudent,
   findStudent,
+  findStudents,
 } from "../service/student.service";
 
 export async function createStudentHandler(
@@ -47,6 +48,12 @@ export async function updateStudentHandler(
   });
 
   return res.send(updatedStudent);
+}
+
+export async function getAllStudentsHandler(req: Request, res: Response) {
+  const students = await findStudents({ valid: true });
+
+  return res.send(students);
 }
 
 export async function getStudentHandler(
