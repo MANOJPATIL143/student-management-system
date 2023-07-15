@@ -1,0 +1,737 @@
+{
+	"info": {
+		"_postman_id": "1c15dd1e-9eca-452b-8e09-6d74314e2c9d",
+		"name": "school-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10035230"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"elijah@digitalskull.com\",\n  \"name\": \"Elijah Ndungu\",\n  \"password\": \"qwerty\",\n  \"passwordConfirmation\": \"qwerty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8070/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register user example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"elijah@digitalskull.com\",\n  \"name\": \"Elijah Ndungu\",\n  \"password\": \"qwerty\",\n  \"passwordConfirmation\": \"qwerty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8070/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c2-m/GXfLE2BmNnPvKavZdccDenFtc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Jul 2023 15:43:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"elijah@digitalskull.com\",\n    \"name\": \"Elijah Ndungu\",\n    \"role\": \"TEACHER\",\n    \"_id\": \"64b2be90b5ce86f6275a78d9\",\n    \"createdAt\": \"2023-07-15T15:43:12.926Z\",\n    \"updatedAt\": \"2023-07-15T15:43:12.926Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"elijah@digitalskull.com\",\n  \"password\": \"qwerty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8070/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register user example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"elijah@digitalskull.com\",\n  \"name\": \"Elijah Ndungu\",\n  \"password\": \"qwerty\",\n  \"passwordConfirmation\": \"qwerty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8070/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c2-m/GXfLE2BmNnPvKavZdccDenFtc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Jul 2023 15:43:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"elijah@digitalskull.com\",\n    \"name\": \"Elijah Ndungu\",\n    \"role\": \"TEACHER\",\n    \"_id\": \"64b2be90b5ce86f6275a78d9\",\n    \"createdAt\": \"2023-07-15T15:43:12.926Z\",\n    \"updatedAt\": \"2023-07-15T15:43:12.926Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Session",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGIyYmU5MGI1Y2U4NmY2Mjc1YTc4ZDkiLCJlbWFpbCI6ImVsaWphaEBkaWdpdGFsc2t1bGwuY29tIiwibmFtZSI6IkVsaWphaCBOZHVuZ3UiLCJyb2xlIjoiVEVBQ0hFUiIsImNyZWF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsIl9fdiI6MCwic2Vzc2lvbiI6IjY0YjJkN2M5OWFkZmQ3YzcxY2IzMTNmYSIsImlhdCI6MTY4OTQ0MjI1MCwiZXhwIjoxNjg5NDQzMTUwfQ.DHkWtnYmY_vTujrhlj4KdP_5mM9-FqUgv_MetRdAN6CmxMITsKXiHf7vN_cTEuvsVc2Kjw7g6yi9W5S7dXI7iaX5Wc18qjDK4PwrSTCDQdaN2T1_PPaw1ZLN3ciRv6BIfX5hCuxw7U2rinaoI2Bb0gM-OmwzwEMUPwX6XvcgVWeR7236wBqYjWGPd0H9LPCh_yMO1Rrp8qgPr0kRUYRCgVYGlb4MLWloXUMwOSxkIykixiCwYvjlNbjWyfsrucmjtKytZBc6iL-TCLmLEqdSG-fIQjgaU-ABqm0rH7ILAkCaqdz-wcaNrwanssdfLTTWx_lar2TsTGx4yDWbtRL3gw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8070/api/auth/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"auth",
+						"sessions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register user example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"elijah@digitalskull.com\",\n  \"name\": \"Elijah Ndungu\",\n  \"password\": \"qwerty\",\n  \"passwordConfirmation\": \"qwerty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8070/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c2-m/GXfLE2BmNnPvKavZdccDenFtc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Jul 2023 15:43:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"elijah@digitalskull.com\",\n    \"name\": \"Elijah Ndungu\",\n    \"role\": \"TEACHER\",\n    \"_id\": \"64b2be90b5ce86f6275a78d9\",\n    \"createdAt\": \"2023-07-15T15:43:12.926Z\",\n    \"updatedAt\": \"2023-07-15T15:43:12.926Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Add new student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGIyYmU5MGI1Y2U4NmY2Mjc1YTc4ZDkiLCJlbWFpbCI6ImVsaWphaEBkaWdpdGFsc2t1bGwuY29tIiwibmFtZSI6IkVsaWphaCBOZHVuZ3UiLCJyb2xlIjoiVEVBQ0hFUiIsImNyZWF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsIl9fdiI6MCwic2Vzc2lvbiI6IjY0YjJlM2FmODkzZDY1ZTQzOTQyY2IzNSIsImlhdCI6MTY4OTQ0NTI5NiwiZXhwIjoxNjg5NDQ2MTk2fQ.GFd15VgT_-4JFHITjyqc_JIK3cU9nSB0eLP5XJey_ArcQPFPjN1N_Ugx8jxyC4rnJJSvE9VtBAuiKyRa3jxGw2u4pjHGzuNZPbyjduESH4a_cLiKRXEvVdc5Db_ghl9UVqoGa4EkV5Srv6e_2ddWweaEjI31a679hcchdRQ_ZrpUYBW7eBkSjU76ZuK7hmKPHUi0Pat5q972ghnGw8hZaOG33r3lPLsLXeLlHRmJUkcIDRzD0cuIYz4jsT9podlZHrg5qQvZQ3iO4KHfk5P0fEjud8Mzw-fbdMES5o4lUFJkxdo9UK77oOOx8KOtaeVf4jxniBIlLWfrgynItEUc4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"Agnes\",\n  \"lastName\": \"Borne\",\n  \"admissionNo\": \"ADM-4523\",\n  \"grade\": \"C+\",\n  \"age\": 17,\n  \"class\": \"7B\",\n  \"guardianName\": \"Dennis Lawson\",\n  \"guardianPhoneNumber\": \"7626345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8070/api/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add new student example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Gerald\",\n  \"lastName\": \"Lumumba\",\n  \"admissionNo\": \"ADM-5536\",\n  \"grade\": \"B+\",\n  \"age\": 13,\n  \"class\": \"7B\",\n  \"guardianName\": \"Mary Lumumba\",\n  \"guardianPhoneNumber\": \"712345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8070/api/v1/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"students"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "355"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"163-y0Wt2Rr3v77/LHAKBd9UCtHcCEk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Jul 2023 17:39:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": \"64b2be90b5ce86f6275a78d9\",\n    \"firstName\": \"Gerald\",\n    \"lastName\": \"Lumumba\",\n    \"class\": \"7B\",\n    \"admissionNo\": \"ADM-5536\",\n    \"grade\": \"B+\",\n    \"age\": \"13\",\n    \"guardianName\": \"Mary Lumumba\",\n    \"guardianPhoneNumber\": \"712345678\",\n    \"_id\": \"64b2d9bb624dd9bae07adf99\",\n    \"studentId\": \"student_r95rhuwsb6\",\n    \"createdAt\": \"2023-07-15T17:39:07.067Z\",\n    \"updatedAt\": \"2023-07-15T17:39:07.067Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGIyYmU5MGI1Y2U4NmY2Mjc1YTc4ZDkiLCJlbWFpbCI6ImVsaWphaEBkaWdpdGFsc2t1bGwuY29tIiwibmFtZSI6IkVsaWphaCBOZHVuZ3UiLCJyb2xlIjoiVEVBQ0hFUiIsImNyZWF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsIl9fdiI6MCwic2Vzc2lvbiI6IjY0YjJkN2M5OWFkZmQ3YzcxY2IzMTNmYSIsImlhdCI6MTY4OTQ0MjI1MCwiZXhwIjoxNjg5NDQzMTUwfQ.DHkWtnYmY_vTujrhlj4KdP_5mM9-FqUgv_MetRdAN6CmxMITsKXiHf7vN_cTEuvsVc2Kjw7g6yi9W5S7dXI7iaX5Wc18qjDK4PwrSTCDQdaN2T1_PPaw1ZLN3ciRv6BIfX5hCuxw7U2rinaoI2Bb0gM-OmwzwEMUPwX6XvcgVWeR7236wBqYjWGPd0H9LPCh_yMO1Rrp8qgPr0kRUYRCgVYGlb4MLWloXUMwOSxkIykixiCwYvjlNbjWyfsrucmjtKytZBc6iL-TCLmLEqdSG-fIQjgaU-ABqm0rH7ILAkCaqdz-wcaNrwanssdfLTTWx_lar2TsTGx4yDWbtRL3gw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"Gerald\",\n  \"lastName\": \"Lumumba\",\n  \"admissionNo\": \"ADM-5536\",\n  \"grade\": \"A\",\n  \"age\": 16,\n  \"class\": \"8A\",\n  \"guardianName\": \"Mary Lumumba\",\n  \"guardianPhoneNumber\": \"712345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8070/api/students/student_r95rhuwsb6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"students",
+						"student_r95rhuwsb6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add new student example",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Gerald\",\n  \"lastName\": \"Lumumba\",\n  \"admissionNo\": \"ADM-5536\",\n  \"grade\": \"A\",\n  \"age\": 16,\n  \"class\": \"8A\",\n  \"guardianName\": \"Mary Lumumba\",\n  \"guardianPhoneNumber\": \"712345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8070/api/v1/students/student_r95rhuwsb6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"student_r95rhuwsb6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "354"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"162-38S1qSIMAvp3EcJ4s0Kpf68vcHU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Jul 2023 17:42:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"64b2d9bb624dd9bae07adf99\",\n    \"user\": \"64b2be90b5ce86f6275a78d9\",\n    \"firstName\": \"Gerald\",\n    \"lastName\": \"Lumumba\",\n    \"class\": \"8A\",\n    \"admissionNo\": \"ADM-5536\",\n    \"grade\": \"A\",\n    \"age\": \"16\",\n    \"guardianName\": \"Mary Lumumba\",\n    \"guardianPhoneNumber\": \"712345678\",\n    \"studentId\": \"student_r95rhuwsb6\",\n    \"createdAt\": \"2023-07-15T17:39:07.067Z\",\n    \"updatedAt\": \"2023-07-15T17:42:03.156Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Student By studentId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGIyYmU5MGI1Y2U4NmY2Mjc1YTc4ZDkiLCJlbWFpbCI6ImVsaWphaEBkaWdpdGFsc2t1bGwuY29tIiwibmFtZSI6IkVsaWphaCBOZHVuZ3UiLCJyb2xlIjoiVEVBQ0hFUiIsImNyZWF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsIl9fdiI6MCwic2Vzc2lvbiI6IjY0YjJkN2M5OWFkZmQ3YzcxY2IzMTNmYSIsImlhdCI6MTY4OTQ0MjI1MCwiZXhwIjoxNjg5NDQzMTUwfQ.DHkWtnYmY_vTujrhlj4KdP_5mM9-FqUgv_MetRdAN6CmxMITsKXiHf7vN_cTEuvsVc2Kjw7g6yi9W5S7dXI7iaX5Wc18qjDK4PwrSTCDQdaN2T1_PPaw1ZLN3ciRv6BIfX5hCuxw7U2rinaoI2Bb0gM-OmwzwEMUPwX6XvcgVWeR7236wBqYjWGPd0H9LPCh_yMO1Rrp8qgPr0kRUYRCgVYGlb4MLWloXUMwOSxkIykixiCwYvjlNbjWyfsrucmjtKytZBc6iL-TCLmLEqdSG-fIQjgaU-ABqm0rH7ILAkCaqdz-wcaNrwanssdfLTTWx_lar2TsTGx4yDWbtRL3gw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8070/api/students/student_r95rhuwsb6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"students",
+						"student_r95rhuwsb6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Student By studentId example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8070/api/v1/students/student_r95rhuwsb6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"student_r95rhuwsb6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "354"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"162-38S1qSIMAvp3EcJ4s0Kpf68vcHU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Jul 2023 17:43:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"64b2d9bb624dd9bae07adf99\",\n    \"user\": \"64b2be90b5ce86f6275a78d9\",\n    \"firstName\": \"Gerald\",\n    \"lastName\": \"Lumumba\",\n    \"class\": \"8A\",\n    \"admissionNo\": \"ADM-5536\",\n    \"grade\": \"A\",\n    \"age\": \"16\",\n    \"guardianName\": \"Mary Lumumba\",\n    \"guardianPhoneNumber\": \"712345678\",\n    \"studentId\": \"student_r95rhuwsb6\",\n    \"createdAt\": \"2023-07-15T17:39:07.067Z\",\n    \"updatedAt\": \"2023-07-15T17:42:03.156Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Detele student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGIyYmU5MGI1Y2U4NmY2Mjc1YTc4ZDkiLCJlbWFpbCI6ImVsaWphaEBkaWdpdGFsc2t1bGwuY29tIiwibmFtZSI6IkVsaWphaCBOZHVuZ3UiLCJyb2xlIjoiVEVBQ0hFUiIsImNyZWF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsIl9fdiI6MCwic2Vzc2lvbiI6IjY0YjJkN2M5OWFkZmQ3YzcxY2IzMTNmYSIsImlhdCI6MTY4OTQ0MjI1MCwiZXhwIjoxNjg5NDQzMTUwfQ.DHkWtnYmY_vTujrhlj4KdP_5mM9-FqUgv_MetRdAN6CmxMITsKXiHf7vN_cTEuvsVc2Kjw7g6yi9W5S7dXI7iaX5Wc18qjDK4PwrSTCDQdaN2T1_PPaw1ZLN3ciRv6BIfX5hCuxw7U2rinaoI2Bb0gM-OmwzwEMUPwX6XvcgVWeR7236wBqYjWGPd0H9LPCh_yMO1Rrp8qgPr0kRUYRCgVYGlb4MLWloXUMwOSxkIykixiCwYvjlNbjWyfsrucmjtKytZBc6iL-TCLmLEqdSG-fIQjgaU-ABqm0rH7ILAkCaqdz-wcaNrwanssdfLTTWx_lar2TsTGx4yDWbtRL3gw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8070/api/students/student_r95rhuwsb6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"students",
+						"student_r95rhuwsb6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all students",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGIyYmU5MGI1Y2U4NmY2Mjc1YTc4ZDkiLCJlbWFpbCI6ImVsaWphaEBkaWdpdGFsc2t1bGwuY29tIiwibmFtZSI6IkVsaWphaCBOZHVuZ3UiLCJyb2xlIjoiVEVBQ0hFUiIsImNyZWF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDctMTVUMTU6NDM6MTIuOTI2WiIsIl9fdiI6MCwic2Vzc2lvbiI6IjY0YjMwNThlYzgwOTk4ODc4OWFiMTYwNyIsImlhdCI6MTY4OTQ1Mzk2NywiZXhwIjoxNjg5NDU3NTY3fQ.Bq9uJbi-aegizP6TL4pyICNICOjFUE7mHVLOJhRSDEfcxlh-fYVDce6d9AVLTCIQforHnnqlronkdsas5f_v2fMCHUNrg2E8SFrANpvrWVR6tHV3N7RvSZiQktG8mezOs0fLekqDzFrZvc6usPYAPhDvkySAAXuG7HDgxs8vVrgSyC8uz9XMKsBljy5iY43PHNgAhpycESLNBXxvCEjsd_CyNT-C9i9ztcoK4oPV5C4fC5Vgco5gUYlhqoFqav-9GhXpv0WBKrKSGD1o51CeNqH9V_bMpsN-Lwhak7OkPnc1-bdD7MNKxQdlwU37HikoVTA-TsAtUDTxteFG-___-A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8070/api/students?age=16&class=8A&admissionNo=ADM-5536",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"students"
+					],
+					"query": [
+						{
+							"key": "age",
+							"value": "16"
+						},
+						{
+							"key": "class",
+							"value": "8A"
+						},
+						{
+							"key": "admissionNo",
+							"value": "ADM-5536"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List of students example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8070/api/v1/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"students"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "711"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2c7-BvNVqzFM0H1hwHJV+8f6gCRxl90\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 15 Jul 2023 18:59:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"64b2d9bb624dd9bae07adf99\",\n        \"user\": \"64b2be90b5ce86f6275a78d9\",\n        \"firstName\": \"Gerald\",\n        \"lastName\": \"Lumumba\",\n        \"class\": \"8A\",\n        \"admissionNo\": \"ADM-5536\",\n        \"grade\": \"A\",\n        \"age\": \"16\",\n        \"guardianName\": \"Mary Lumumba\",\n        \"guardianPhoneNumber\": \"712345678\",\n        \"studentId\": \"student_r95rhuwsb6\",\n        \"createdAt\": \"2023-07-15T17:39:07.067Z\",\n        \"updatedAt\": \"2023-07-15T17:42:03.156Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64b2e4ef893d65e43942cb38\",\n        \"user\": \"64b2be90b5ce86f6275a78d9\",\n        \"firstName\": \"Agnes\",\n        \"lastName\": \"Borne\",\n        \"class\": \"7B\",\n        \"admissionNo\": \"ADM-4523\",\n        \"grade\": \"C+\",\n        \"age\": \"17\",\n        \"guardianName\": \"Dennis Lawson\",\n        \"guardianPhoneNumber\": \"7626345678\",\n        \"studentId\": \"student_kqftxeuxn3\",\n        \"createdAt\": \"2023-07-15T18:26:55.478Z\",\n        \"updatedAt\": \"2023-07-15T18:26:55.478Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		}
+	]
+}
