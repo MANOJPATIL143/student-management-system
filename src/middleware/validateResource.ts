@@ -1,3 +1,7 @@
+/**
+ * author: Elijah Ndung'u
+ * dev.elijah.ndungu@gmail.com
+ */
 import { Request, Response, NextFunction } from "express";
 import { AnyZodObject } from "zod";
 

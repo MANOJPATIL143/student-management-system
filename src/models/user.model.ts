@@ -1,3 +1,8 @@
+/**
+ * author: Elijah Ndung'u
+ * dev.elijah.ndungu@gmail.com
+ */
+
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import config from "config";

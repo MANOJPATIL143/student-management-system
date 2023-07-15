@@ -9,6 +9,11 @@ const options: swaggerJsdoc.Options = {
     info: {
       title: "Student Management API Docs",
       version: "v1.0.0",
+      contact: {
+        name: "Elijah Ndung'u",
+        email: "dev.elijah.ndungu@gmail.com",
+        url: "www.github.com/alyjahndungu",
+      },
     },
     components: {
       securitySchemas: {

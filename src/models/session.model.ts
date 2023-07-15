@@ -1,3 +1,7 @@
+/**
+ * author: Elijah Ndung'u
+ * dev.elijah.ndungu@gmail.com
+ */
 import mongoose from "mongoose";
 import { UserDocument } from "./user.model";
 

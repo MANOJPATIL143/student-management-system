@@ -1,3 +1,8 @@
+/**
+ * author: Elijah Ndung'u
+ * dev.elijah.ndungu@gmail.com
+ */
+
 import { Request, Response } from "express";
 import {
   CreateStudentInput,
