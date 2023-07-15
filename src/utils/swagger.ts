@@ -7,7 +7,7 @@ const options: swaggerJsdoc.Options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "SMS API Docs",
+      title: "Student Management API Docs",
       version: "v1.0.0",
     },
     components: {

@@ -23,40 +23,45 @@ import { createSessionSchema } from "../schema/session.schema";
 import { createUserSchema } from "../schema/user.schema";
 
 function routes(app: Express) {
+  const baseUrl = "/api/v1";
   app.get("/healthcheck", (req: Request, res: Response) => res.sendStatus(200));
 
-  app.post("/api/users", validateResource(createUserSchema), createUserHandler);
+  app.post(
+    `${baseUrl}users`,
+    validateResource(createUserSchema),
+    createUserHandler
+  );
 
   app.post(
-    "/api/sessions",
+    `${baseUrl}/sessions`,
     validateResource(createSessionSchema),
     createUserSessionHandler
   );
 
-  app.get("/api/sessions", isAuthenticated, getUserSessionsHandler);
+  app.get(`${baseUrl}/sessions`, isAuthenticated, getUserSessionsHandler);
 
-  app.delete("/api/sessions", isAuthenticated, deleteSessionHandler);
+  app.delete(`${baseUrl}/sessions`, isAuthenticated, deleteSessionHandler);
 
   app.post(
-    "/api/students",
+    `${baseUrl}/students`,
     [isAuthenticated, validateResource(createStudentSchema)],
     createStudentHandler
   );
 
   app.put(
-    "/api/students/:studentId",
+    `${baseUrl}/students/:studentId`,
     [isAuthenticated, validateResource(updateStudentSchema)],
     updateStudentHandler
   );
 
   app.get(
-    "/api/students/:studentId",
+    `${baseUrl}/students/:studentId`,
     validateResource(getStudentSchema),
     getStudentHandler
   );
 
   app.delete(
-    "/api/students/:studentId",
+    `${baseUrl}/students/:studentId`,
     [isAuthenticated, validateResource(deleteStudentSchema)],
     deleteStudentHandler
   );

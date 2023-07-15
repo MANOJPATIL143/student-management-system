@@ -5,13 +5,18 @@ import logger from "./logger";
 async function connect() {
   const dbUri = config.get<string>("dbUri");
 
-  try {
-    await mongoose.connect(dbUri);
-    logger.info("DB connected");
-  } catch (error) {
-    logger.error("Could not connect to db");
-    process.exit(1);
-  }
+  mongoose.Promise = Promise;
+  mongoose
+    .connect(dbUri)
+    .then((x) => {
+      logger.info(
+        `Connected to Mongo! Database name: "${x.connections[0].name}"`
+      );
+    })
+    .catch((err) => {
+      logger.error("Error connecting to MongoDB", err.reason);
+    });
+  mongoose.connection.on("error", (error: Error) => logger.error(error));
 }
 
 export default connect;
