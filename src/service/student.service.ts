@@ -13,8 +13,8 @@ export async function createStudent(input: StudentInput) {
   }
 }
 
-export async function findStudents({}, query: FilterQuery<StudentDocument>) {
-  return StudentModel.find(query).lean();
+export async function filterStudents(filters: FilterQuery<StudentInput>) {
+  return StudentModel.find(filters).exec();
 }
 
 export async function findStudent(

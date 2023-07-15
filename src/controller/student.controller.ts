@@ -8,8 +8,9 @@ import {
   deleteStudent,
   findAndUpdateStudent,
   findStudent,
-  findStudents,
+  filterStudents,
 } from "../service/student.service";
+import { StudentInput } from "models/student.model";
 
 export async function createStudentHandler(
   req: Request<{}, {}, CreateStudentInput["body"]>,
@@ -50,10 +51,28 @@ export async function updateStudentHandler(
   return res.send(updatedStudent);
 }
 
-export async function getAllStudentsHandler(req: Request, res: Response) {
-  const students = await findStudents({ valid: true });
+export async function filterStudentsHandler(req: Request, res: Response) {
+  const filters: StudentInput = {};
 
-  return res.send(students);
+  if (req.query.grade) {
+    filters.grade = req.query.grade as string;
+  }
+
+  if (req.query.class) {
+    filters.class = req.query.class as string;
+  }
+
+  if (req.query.age) {
+    filters.age = parseInt(req.query.age as string, 10);
+  }
+
+  if (req.query.admissionNo) {
+    filters.admissionNo = req.query.admissionNo as string;
+  }
+
+  const students = await filterStudents(filters);
+
+  return res.json(students);
 }
 
 export async function getStudentHandler(

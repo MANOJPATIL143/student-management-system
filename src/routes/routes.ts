@@ -4,7 +4,7 @@ import {
   getStudentHandler,
   updateStudentHandler,
   deleteStudentHandler,
-  getAllStudentsHandler,
+  filterStudentsHandler,
 } from "../controller/student.controller";
 import {
   createUserSessionHandler,
@@ -25,7 +25,7 @@ import { createSessionSchema } from "../schema/session.schema";
 import { createUserSchema } from "../schema/user.schema";
 
 function routes(app: Express) {
-  const baseUrl = "/api/v1";
+  const baseUrl = "/api";
 
   /**
    * @openapi
@@ -42,7 +42,7 @@ function routes(app: Express) {
 
   /**
    * @openapi
-   * '/api/v1/users':
+   * '/api/auth/register':
    *  post:
    *     tags:
    *     - Users
@@ -66,31 +66,31 @@ function routes(app: Express) {
    *        description: Bad request
    */
   app.post(
-    `${baseUrl}/users`,
+    `${baseUrl}/auth/register`,
     validateResource(createUserSchema),
     createUserHandler
   );
 
   /**
    * @openapi
-   * /api/v1/sessions:
+   * /api/auth/login:
    *  post:
    *     tags:
    *     - Users
-   *     summary: Login with email and password
+   *     summary: Login with email and password to obtain JWT token
    *     responses:
    *       200:
    *
    */
   app.post(
-    `${baseUrl}/sessions`,
+    `${baseUrl}/auth/login`,
     validateResource(createSessionSchema),
     createUserSessionHandler
   );
 
   /**
    * @openapi
-   * /api/v1/sessions:
+   * /api/auth/sessions:
    *  get:
    *     tags:
    *     - Users
@@ -100,11 +100,11 @@ function routes(app: Express) {
    *
    */
 
-  app.get(`${baseUrl}/sessions`, isAuthenticated, getUserSessionsHandler);
+  app.get(`${baseUrl}/auth/sessions`, isAuthenticated, getUserSessionsHandler);
 
   /**
    * @openapi
-   * /api/v1/sessions:
+   * /api/auth/sessions:
    *  delete:
    *     tags:
    *     - Users
@@ -113,7 +113,7 @@ function routes(app: Express) {
    *       200:
    *
    */
-  app.delete(`${baseUrl}/sessions`, isAuthenticated, deleteSessionHandler);
+  app.delete(`${baseUrl}/auth/sessions`, isAuthenticated, deleteSessionHandler);
 
   //Students APIS
 
@@ -122,7 +122,7 @@ function routes(app: Express) {
    * tags:
    *   name: Students
    *   description: The students managing API
-   * /api/v1/students:
+   * /api/students:
    *   get:
    *     summary: Lists all the students
    *     tags: [Students]
@@ -153,7 +153,7 @@ function routes(app: Express) {
    *               $ref: '#/components/schemas/CreateStudentInput'
    *       500:
    *         description: Some server error
-   * /api/v1/students/{studentId}:
+   * /api/students/{studentId}:
    *   get:
    *     summary: Get the student by studentId
    *     tags: [Students]
@@ -239,7 +239,7 @@ function routes(app: Express) {
   app.get(
     `${baseUrl}/students`,
     validateResource(listStudentSchema),
-    getAllStudentsHandler
+    filterStudentsHandler
   );
 
   app.delete(
