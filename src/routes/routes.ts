@@ -124,8 +124,15 @@ function routes(app: Express) {
    *   description: The students managing API
    * /api/students:
    *   get:
-   *     summary: Lists all the students
+   *     summary: List and filter all students
    *     tags: [Students]
+   *     parameters:
+   *       - in: query
+   *         name: age, class, grade, admissionNo
+   *         schema:
+   *           type: string
+   *         required: false
+   *         description: Optional query filter parameters
    *     responses:
    *       200:
    *         description: The list of the students
