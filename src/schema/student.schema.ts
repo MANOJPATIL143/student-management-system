@@ -1,5 +1,72 @@
 import { object, number, string, TypeOf } from "zod";
 
+/**
+ * @openapi
+ * components:
+ *  schemas:
+ *    CreateStudentInput:
+ *      type: object
+ *      required:
+ *        - firstName
+ *        - lastName
+ *        - admissionNo
+ *        - grade
+ *        - class
+ *        - age
+ *        - guardianName
+ *        - guardianPhoneNumber
+ *      properties:
+ *        firstName:
+ *          type: string
+ *          default: Gerald
+ *        lastName:
+ *          type: string
+ *          default: Lumumba
+ *        admissionNo:
+ *          type: string
+ *          default: ADM-5536
+ *        grade:
+ *          type: string
+ *          default: B+
+ *        age:
+ *          type: number
+ *          default: 13
+ *        class:
+ *          type: string
+ *          default: 7B
+ *        guardianName:
+ *          type: string
+ *          default: Mary Lumumba
+ *        guardianPhoneNumber:
+ *          type: string
+ *          default: 0712345678
+ *    CreateStudentResponse:
+ *      type: object
+ *      properties:
+ *        _id:
+ *          type: string
+ *        firstName:
+ *          type: string
+ *        lastName:
+ *          type: string
+ *        admissionNo:
+ *          type: string
+ *        grade:
+ *          type: string
+ *        age:
+ *          type: number
+ *        class:
+ *          type: string
+ *        guardianName:
+ *          type: string
+ *        guardianPhoneNumber:
+ *          type: string
+ *        createdAt:
+ *          type: string
+ *        updatedAt:
+ *          type: string
+ */
+
 const payload = {
   body: object({
     firstName: string({
